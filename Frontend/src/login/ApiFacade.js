@@ -1,4 +1,4 @@
-const URL = "https://melif.dk/Examprep2";
+const URL = "http://localhost:8080/examprep2";
 
 function handleHttpErrors(res) {
     if (!res.ok) {
@@ -52,15 +52,25 @@ function ApiFacade() {
         return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
     }
 
-    const fetchData = () => {
-        return fetch(URL + "/api/swapi/demo", makeOptions("GET")).then(handleHttpErrors);
+    const fetchCategory = () => {
+        return fetch(URL + "/api/category/all", makeOptions("GET")).then(handleHttpErrors);
+    }
+
+    const fetchJokeV1 = (category) => {
+        return fetch(URL + "/api/jokeByCategory/"+category, makeOptions("GET")).then(handleHttpErrors);
+    }
+
+    const fetchJokeV2 = () => {
+        return fetch(URL + "/api/jokeByCategoryV2/", makeOptions("GET")).then(handleHttpErrors);
     }
 
     return {
         login,
         logout,
         fetchUser,
-        fetchData
+        fetchCategory,
+        fetchJokeV1,
+        fetchJokeV2
     }
 
 }

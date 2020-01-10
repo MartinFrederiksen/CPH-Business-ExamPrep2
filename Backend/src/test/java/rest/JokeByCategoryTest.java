@@ -17,13 +17,14 @@ import org.glassfish.jersey.server.ResourceConfig;
 import static org.hamcrest.Matchers.equalTo;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  *
  * @author APC
  */
-public class SwapiResourceTest {
+public class JokeByCategoryTest {
     
     private static final int SERVER_PORT = 7777;
     private static final String SERVER_URL = "http://localhost/api";
@@ -52,7 +53,7 @@ public class SwapiResourceTest {
         httpServer.shutdownNow();
     }
     
-
+  @Disabled
   @Test
   public void serverIsRunning() {
     System.out.println("Testing is server UP");
@@ -62,6 +63,7 @@ public class SwapiResourceTest {
     /**
      * Test of getJson method, of class SwapiResource.
      */
+    @Disabled
     @Test
     public void testGetJson() {
         given()
@@ -71,7 +73,7 @@ public class SwapiResourceTest {
                 .statusCode(HttpStatus.OK_200.getStatusCode())
                 .body("msg", equalTo("Welcome to the Star Wars API!"));
     }
-    
+    @Disabled
     @Test
     public void testGetJson404() {
         given()
@@ -84,6 +86,7 @@ public class SwapiResourceTest {
     /**
      * Test of getJsonList method, of class SwapiResource.
      */
+    @Disabled
     @Test
     public void testGetJsonList() {
         given()
